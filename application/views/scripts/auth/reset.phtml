@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Time-to-Work</title>
+
+    <?php
+    $this->headScript()->appendFile("http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/index/style-min.css'));
+
+    echo $this->headLink()."\n";
+    echo $this->headScript();
+    ?>
+    <style type="text/css">
+
+        #blockContainer {
+            height:190px;
+            margin:0 auto;
+            position:relative;
+            width:360px;
+            z-index:2;
+            top:200px;
+        }
+
+        input.NITextField {
+            border-color:#7F7F7F #DFDFDF #DFDFDF #7F7F7F;
+            border-style:solid;
+            border-width:1px;
+            width:95%;
+        }
+        input.NISubmitButton {
+            background-color:#999999;
+            border-color:#BEBED4 #424262 #424262 #BEBED4;
+            border-style:solid;
+            border-width:1px;
+            color:#FFFFFF;
+            font-size:11px;
+            font-weight:bold;
+            padding:5px 15px;
+            margin-left:20px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="art-page-background-simple-gradient">
+
+    <div class="art-Block" id='blockContainer'>
+        <div class="art-Block-tl"></div>
+        <div class="art-Block-tr"></div>
+        <div class="art-Block-bl"></div>
+        <div class="art-Block-br"></div>
+        <div class="art-Block-tc"></div>
+        <div class="art-Block-bc"></div>
+        <div class="art-Block-cl"></div>
+        <div class="art-Block-cr"></div>
+        <div class="art-Block-cc"></div>
+        <div class="art-Block-body">
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div id="time-title" class="t">Данные пользователя <?php   echo $this->username; ?></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-body" id ='confirmBlock'>
+
+                    <table width="100%">
+                        <tbody>
+
+
+                        <tr>
+                            <th>Новый пароль:</th>
+                            <td>
+                                <input type="password"  class="NITextField" id="newPassword" >	</td>
+                        </tr>
+                        <tr>
+                            <th>Еще раз новый пароль:</th>
+                            <td>
+                                <input type="password"  class="NITextField" id="newPasswordAgain" >	</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>
+                                <input type="text" class="NITextField" id="newEmail" value="<?php echo $this->email; ?>">	</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="submit"  class="NISubmitButton" id="confirmButton" value="Подтвердить">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id='infoConfirmAttempt' style="margin-left:20px;color:red;"><p></p></div>
+                </div>
+
+                <div class="cleared"></div>
+            </div>
+        </div>
+        <div class="cleared"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        function CheckData() {
+
+            var password = $("#newPassword").val();
+            var passwordAgain = $("#newPasswordAgain").val();
+            var email = $("#newEmail").val();
+
+            function isValidEmail(sText) {
+                var reEmail = /^(?:\w+\.?)*\w+@(?:\w+\.)+\w+$/;
+                return reEmail.test(sText);
+            }
+
+            var node = $('#infoConfirmAttempt p');
+            if (password.length < 6 ){
+                node.text('Пароль меньше 6 символов');
+            }
+            else if (password !== passwordAgain){
+                node.text('Пароли не совпадают');
+            }
+
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://time-to-work.net/auth/changeuserdata",
+                    data: "username="+  <?php echo '"'. $this->username . '"'; ?>  +"&password="+password+"&email="+email,
+                    beforeSend:function(){
+                        $('#infoConfirmAttempt p').text('Проверяем ...');
+                    },
+                    success: function(msg){
+                        if (msg === 'success') {
+
+                            $('#infoConfirmAttempt p').html('Данные изменены -' + '<a href="../index">на главную</a>');
+                        }
+                        else if (msg = 'invalidEmail'){
+                            $('#infoConfirmAttempt p').text('Некорректный email');
+                        }
+                        else if (msg === '23000'){
+                            $('#infoConfirmAttempt p').text('Такой email уже используется');
+                        }
+                    }
+                });
+            }
+            ;
+        };
+        $("#confirmButton").click(CheckData);
+        $("#confirmBlock").delegate("input", "keydown", function(event){
+            if (event.keyCode == '13') {
+                CheckData();
+            }
+        });
+    })
+</script>
+</body>
+</html>

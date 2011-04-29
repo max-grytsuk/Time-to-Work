@@ -1,0 +1,349 @@
+
+<?php
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/index/style.css'));
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/index/jquery-lightbox.css'));
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/index/signup-block.css'));
+
+$this->headScript()->appendFile("http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
+$this->headScript()->appendFile($this->baseUrl('public/js/libs/jquery.lightbox-0.5.min.js'));
+$this->headScript()->appendFile($this->baseUrl('public/js/index/script.js'));
+$this->headScript()->appendFile( $this->baseUrl('public/js/index/login-auth.js'),'text/javascript');
+?>
+
+<div id="art-page-background-simple-gradient">
+    <div id="art-page-background-gradient"></div>
+</div>
+<div id="art-main">
+<div class="art-sheet">
+<div class="art-sheet-tl"></div>
+<div class="art-sheet-tr"></div>
+<div class="art-sheet-bl"></div>
+<div class="art-sheet-br"></div>
+<div class="art-sheet-tc"></div>
+<div class="art-sheet-bc"></div>
+<div class="art-sheet-cl"></div>
+<div class="art-sheet-cr"></div>
+<div class="art-sheet-cc"></div>
+<div class="art-sheet-body">
+
+
+<div class="art-post">
+<div class="art-post-tl"></div>
+<div class="art-post-tr"></div>
+<div class="art-post-bl"></div>
+<div class="art-post-br"></div>
+<div class="art-post-tc"></div>
+<div class="art-post-bc"></div>
+<div class="art-post-cl"></div>
+<div class="art-post-cr"></div>
+<div class="art-post-cc"></div>
+<div class="art-post-body">
+<div class="art-post-inner art-article">
+<div class="art-layout-cell art-sidebar1" style="float:right;width:250px;">
+    <div class="art-block">
+        <div class="art-block-tl"></div>
+        <div class="art-block-tr"></div>
+        <div class="art-block-bl"></div>
+        <div class="art-block-br"></div>
+        <div class="art-block-tc"></div>
+        <div class="art-block-bc"></div>
+        <div class="art-block-cl"></div>
+        <div class="art-block-cr"></div>
+        <div class="art-block-cc"></div>
+        <div class="art-block-body">
+            <div class="art-blockcontent">
+                <div class="art-blockcontent-body">
+                    <div>
+                        <div id='screenshort'>
+                            <a href="public/images/screenshot.jpg"><img  src="public/images/screenshot-min.jpg" alt="an image" style="margin: 0 auto;display:block;width:95%" /></a>
+                        </div>
+                        <br />
+                        <div style="font-size:12px;">
+                            <b>Данные для входа в демо режиме</b><br />
+                            <br />
+                            Логин: demo <br />
+                            Пароль: demo <br /> <br />
+                            <b>Для полноценной работы нужно зарегистрироваться</b>
+                        </div>
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+    <div class="art-block">
+        <div class="art-block-tl"></div>
+        <div class="art-block-tr"></div>
+        <div class="art-block-bl"></div>
+        <div class="art-block-br"></div>
+        <div class="art-block-tc"></div>
+        <div class="art-block-bc"></div>
+        <div class="art-block-cl"></div>
+        <div class="art-block-cr"></div>
+        <div class="art-block-cc"></div>
+        <div class="art-block-body">
+            <div class="art-blockcontent">
+                <div class="art-blockcontent-body">
+
+                    <div id='loginBlock' style="font-size:12px;">
+
+                        <div>Имя пользователя:</div>
+                        <input type="text" id="loginName" name="login" style="width: 95%;">
+
+                        <div style="margin-bottom:10px;"></div>
+                        <div>Пароль:</div>
+                        <input type="password" id="loginPassword" name="password" style="width: 95%;">
+
+                        <div style="margin-bottom:10px;"></div>
+                        <div id="loginButton">
+                           <span class="art-button-wrapper">
+                                     <span class="l"> </span>
+                                     <span class="r"> </span>
+                                     <input class="art-button" type="submit" name="search" value="К работе" />
+                            </span>
+
+                        </div>
+
+                        <div id='infoLoginAttempt' style="margin-left:20px;color:red;"><p style="font-size:12px;"></p></div>
+                    </div>
+
+
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+</div>
+
+
+<h2 class="art-postheader" style="font-family:'Lucida Sans Unicode' ;text-shadow: #DDD 1px 1px 1px;">
+    Time-to-Work
+</h2>
+<b><div style="margin-left:20px;color:#666;font-style:italic;margin-bottom:20px;">powered by Pomodoro Technique</div></b>
+
+<div class="art-postcontent">
+
+    <div style="width:660px;">
+
+        <p style="margin-bottom:15px;">&nbsp;&nbsp;Основой для разработки данного вебприложения были идеи, предложенные в методике управления временем
+            <a href="http://www.pomodorotechnique.com" >Pomodoro Technique</a>.
+        </p>
+
+        <p>&nbsp;&nbsp; <span style="font-weight:bold;font-family:'Verdana'">Pomodoro Technique</span> является инструментом,
+            который позволит Вам:
+        </p>
+
+        <ul style="font-style:italic;">
+            <li>
+                Улучшить концентрацию внимания;
+            </li>
+            <li>
+                Увеличить осведомленность о собственных решениях;
+            </li>
+            <li>
+                Поддерживать мотивацию и сохранять ее на постоянном уровне;
+            </li>
+            <li>
+                Усилить намерения по достижению Ваших целей;
+            </li>
+            <li>
+                Улучшить процесс оценки времени выполнения;
+            </li>
+            <li>
+                Улучшить качество рабочего, либо учебного процесса;
+            </li>
+            <li>
+
+            </li>
+        </ul>
+
+        <p>&nbsp;&nbsp;<b>Методика поможет Вам сконцентрироваться на задачах, которые нужно сделать здесь и сейчас,
+            и научит ценить время.</b>
+
+        <p id="signup" style="margin-top:15px;">
+                                                            <span class="art-button-wrapper">
+                                                                <span class="l"> </span>
+                                                                <span class="r"> </span>
+                                                                <a class="art-button" href="javascript:void(0)">Регистрация</a>
+                                                            </span>
+        </p>
+
+    </div>
+
+    <div class="cleared"></div>
+
+
+
+
+    <div class="art-layout-cell art-content" style="width:467px;float:left;">
+        <div class="art-post">
+            <div class="art-post-tl"></div>
+            <div class="art-post-tr"></div>
+            <div class="art-post-bl"></div>
+            <div class="art-post-br"></div>
+            <div class="art-post-tc"></div>
+            <div class="art-post-bc"></div>
+            <div class="art-post-cl"></div>
+            <div class="art-post-cr"></div>
+            <div class="art-post-cc"></div>
+            <div class="art-post-body">
+                <div class="art-post-inner art-article" >
+                    <h5 style="text-decoration:underline;">Как это работает?</h5>
+                    <ul>
+                        <li>Выбираете из общего списка дел самую приоритетную задачу и запускаете таймер на ее выполнение.
+                        </li>
+
+                        <li>Начинаете работать над задачей, стараясь выполнять эту задачу не теряя концентрации внимания.
+                            Продолжительность выполнения - 25мин. Работаете, пока не прозвонит таймер.
+                        </li>
+
+                        <li>После этого короткий перерыв 3-5мин</li>
+
+                        <li>Каждые 4-5 «помидора», перерыв увеличивается до 15-30мин.</li>
+
+                        <li>После 8-10 «помидоров» перерыв более 30мин.</li>
+
+                    </ul>
+
+                    <div class="cleared"></div>
+                </div>
+
+                <div class="cleared"></div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="cleared"></div>-->
+    <div class="art-layout-cell art-content" style="width:467px;float:left;">
+        <div class="art-post">
+            <div class="art-post-tl"></div>
+            <div class="art-post-tr"></div>
+            <div class="art-post-bl"></div>
+            <div class="art-post-br"></div>
+            <div class="art-post-tc"></div>
+            <div class="art-post-bc"></div>
+            <div class="art-post-cl"></div>
+            <div class="art-post-cr"></div>
+            <div class="art-post-cc"></div>
+            <div class="art-post-body">
+                <div class="art-post-inner art-article" >
+                    <h5 style="text-decoration:underline;">Основные правила:</h5>
+
+                    <ul>
+                        <li>«Помидоры» нельзя делить! Не существует половины «помидора».</li>
+
+                        <li>Если задача отнимает больше 5-7 «помидоров», ее нужно разделить на несколько задач.</li>
+
+                        <li>Задачи, которые длятся меньше 1 «помидора» группируйте по несколько.</li>
+
+                        <li>Каждый следующий «помидор» пойдет лучше!</li>
+
+                        <li style="margin-bottom:31px;">Не используйте «помидорную технику» в нерабочее время. Наслаждайтесь свободным временем!</li>
+                    </ul>
+
+                    <div class="cleared"></div>
+                </div>
+
+                <div class="cleared"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cleared"></div>
+</div>
+
+<div class="cleared"></div>
+</div>
+</div>
+
+
+<div class="cleared"></div><div class="art-footer">
+    <div class="art-footer-t"></div>
+    <div class="art-footer-l"></div>
+    <div class="art-footer-b"></div>
+    <div class="art-footer-r"></div>
+    <div class="art-footer-body">
+        <div class="art-footer-text">
+            <p> Time-to-Work 2011</p>
+            <p>Для пожеланий и предложений: <a href="mailto:max.grytsuk@gmail.com">admin@time-to-work.net</a> </p>
+        </div>
+        <div class="cleared"></div>
+    </div>
+</div>
+<div class="cleared"></div>
+</div>
+</div>
+<div class="cleared"></div>
+</div>
+
+
+<div style="display:none;" id="signupBlock">
+    <div id="signupBlockContainer" style="top: 175px;">
+        <a id="signupBlockCloser" href="#">X</a>
+        <h3 style="text-align:center">Регистрация</h3>
+        <div style="padding:10px;">
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <th>Логин :</th>
+                    <td>
+                        <input type="text" class="NITextField" id="signupName" >
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Пароль:</th>
+                    <td>
+                        <input type="password"  class="NITextField" id="signupPassword" >	</td>
+                </tr>
+                <tr>
+                    <th>Еще раз пароль:</th>
+                    <td>
+                        <input type="password"  class="NITextField" id="signupPasswordAgain" >	</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>
+                        <input type="text"  class="NITextField" id="signupEmail">	</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                         <span class="art-button-wrapper">
+                                                                <span class="l"> </span>
+                                                                <span class="r"> </span>
+                             <input type="submit"  class="art-button" id="signupButton" value="Зарегистрироваться">
+                                                            </span>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id='infoSignupAttempt' style="margin-left:20px;color:red;"><p></p></div>
+    </div>
+    <div id="signupBlockScreen" style="height: 6071px; display: block;"></div>
+</div>
+
+<div style="display:none;" id="signupSuccessBlock">
+    <div id="signupSuccessBlockContainer" style="top: 175px;">
+        <h3 style="text-align:center">Регистрация завершена</h3>
+        <div id='to-work'>
+          <span class="art-button-wrapper">
+          <span class="l"> </span>
+          <span class="r"> </span>
+          <a class="art-button" href=" <?php echo $this->url(array('controller' => 'main', 'action' => 'index'));?>">К работе</a>
+          </span>
+        </div>
+
+    </div>
+    <div id="signupSuccessBlockScreen" style="height: 6071px; display: block;"></div>
+</div>
+
+<script  type="text/javascript">
+    $(function() {
+        $('#screenshort a').lightBox();
+    });
+</script>

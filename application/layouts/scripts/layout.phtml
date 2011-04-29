@@ -1,0 +1,14 @@
+<?php echo $this->doctype('XHTML1_STRICT') ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <?php $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8') ?>
+    <title>Time-to-Work</title>
+    <?php
+    echo $this->headLink();
+    echo $this->headScript();
+    ?>
+</head>
+<body>
+<?php echo $this->layout()->content; ?>
+</body>
+</html>

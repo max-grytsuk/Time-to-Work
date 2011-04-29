@@ -1,0 +1,302 @@
+<?php
+
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/shared/reset-fonts-grids.css'));
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/main/layout.css'));
+$this->headScript()->appendFile( ('http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js'),'text/javascript');
+if (APPLICATION_ENV == 'development' || APPLICATION_ENV == 'local'){
+    $this->headScript()->appendFile( $this->baseUrl('public/js/main/core.js'),'text/javascript');
+}
+else{
+    $this->headScript()->appendFile( $this->baseUrl('public/js/main/core-min.js'),'text/javascript');
+}
+?>
+
+
+<div class="art-nav" id="top">
+    <div style="float: left" >
+        <ul class="art-menu">
+            <li id='bAboutProject'>
+                <a href="#" ><span class="l"></span><span class="r"></span><span class="t">О проекте</span></a>
+            </li>
+        </ul>
+    </div>
+    <div  style="float:left;padding-left:100px;padding-top:5px;"><div id='infoPanel'></div></div>
+    <div id="logged" style="float: right">
+        <div style="float: left; margin-right: 20px;margin-top:4px">
+
+            <?php echo $this->escape($this->username) ; ?>
+        </div>
+
+        <div id='bLogout' style="float: left; margin-right: 20px;margin-top:4px;">
+            <a href="#">logout</a>
+        </div>
+
+    </div>
+</div>
+<div class="art-content" id="centerbar">
+    <div class="art-Block hidden"  id="taskboard">
+        <div class="art-Block-tl"></div>
+        <div class="art-Block-tr"></div>
+        <div class="art-Block-bl"></div>
+        <div class="art-Block-br"></div>
+        <div class="art-Block-tc"></div>
+        <div class="art-Block-bc"></div>
+        <div class="art-Block-cl"></div>
+        <div class="art-Block-cr"></div>
+        <div class="art-Block-cc"></div>
+        <div class="art-Block-body">
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon ">
+                    <div id="taskboardtitle" class="t">Панель проектов (задач)</div>
+                </div>
+            </div>
+
+            <div class="cleared"></div>
+            <div class="art-nav" >
+                <div>
+                    <ul class="art-menu">
+                        <li>
+                            <a href="#" class="{ActiveItem}"><span class="l"></span><span class="r"></span><span class="t">Проекты</span></a>
+                            <ul>
+                                <li id="bAddProject"><a href="#">Добавить проект</a>
+                                </li>
+                                <li id="bCollapseExpandAllTasks"><a href="#">Скрыть содержимое всех проектов</a></li>
+                                <li id="bShowHideDoneTasks"><a href="#">Показать все сделанные задачи</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span class="l"></span><span class="r"></span><span class="t">Архив</span></a>
+                            <ul>
+                                <li id='bShowHideArchiveBlock'><a href="#">Показать блок "Архив"</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cleared"></div>
+
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-body">
+                    <div class="cleared"></div>
+                    <div id="taskboardbody"></div>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="art-sidebar1" id="sidebar">
+    <div class="art-Block hidden" id="timerboard" >
+        <div class="art-Block-tl"></div>
+        <div class="art-Block-tr"></div>
+        <div class="art-Block-bl"></div>
+        <div class="art-Block-br"></div>
+        <div class="art-Block-tc"></div>
+        <div class="art-Block-bc"></div>
+        <div class="art-Block-cl"></div>
+        <div class="art-Block-cr"></div>
+        <div class="art-Block-cc"></div>
+        <div class="art-Block-body">
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div id="time-title" class="t">Таймер</div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+
+            <div class="art-nav" >
+
+                <ul class="art-menu">
+
+                    <li>
+                        <a href="#" class="{ActiveItem}"><span class="l"></span><span class="r"></span><span class="t">Перерыв</span></a>
+                        <ul>
+                            <li id="bMenuBreak3"><a href="#">3мин</a>
+                            </li>
+                            <li id="bMenuBreak5"><a href="#">5мин</a>
+                            </li>
+                            <li id="bMenuBreak15"><a href="#">15мин</a>
+                            </li>
+                            <li id="bMenuBreak20"><a href="#">20мин</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="{ActiveItem}"><span class="l"></span><span class="r"></span><span class="t">Звуковое оповещение</span></a>
+                        <ul>
+                            <li id="bChangeSoundVolume"><a href="#">Отрегулировать громкость звука</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li id="bHideTimerBlock">
+                        <a href="#" class="{ActiveItem}"><span class="l"></span><span class="r"></span><span class="t">Скрыть</span></a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+            <div class="cleared"></div>
+
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-body">
+
+
+                    <div id="timerbody" >
+                    </div>
+
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+
+    <div class="art-Block hidden" id="curtaskboard" >
+        <div class="art-Block-tl"></div>
+        <div class="art-Block-tr"></div>
+        <div class="art-Block-bl"></div>
+        <div class="art-Block-br"></div>
+        <div class="art-Block-tc"></div>
+        <div class="art-Block-bc"></div>
+        <div class="art-Block-cl"></div>
+        <div class="art-Block-cr"></div>
+        <div class="art-Block-cc"></div>
+        <div class="art-Block-body">
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div id="curtaskboardtitle" class="t">Информация к задаче</div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+            <div class="art-nav" >
+
+                <ul class="art-menu">
+                    <li>
+                        <a href="#" class="{ActiveItem}"><span class="l"></span><span class="r"></span><span class="t">Заметки</span></a>
+                        <ul>
+                            <li id="bAddNote"><a href="#">Добавить заметку</a>
+                            </li>
+                            <li id="bCollapseExpandNotes"><a href="#">Скрыть заметки</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="cleared"></div>
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-body">
+                    <div id="curtaskbody"></div>
+
+
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+    <div class="art-Block hidden" id="arctaskboard">
+        <div class="art-Block-tl"></div>
+        <div class="art-Block-tr"></div>
+        <div class="art-Block-bl"></div>
+        <div class="art-Block-br"></div>
+        <div class="art-Block-tc"></div>
+        <div class="art-Block-bc"></div>
+        <div class="art-Block-cl"></div>
+        <div class="art-Block-cr"></div>
+        <div class="art-Block-cc"></div>
+        <div class="art-Block-body">
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div class="t">Архив</div>
+                </div>
+            </div>
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-body">
+                    <div id="arctaskboardbody"></div>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="editorOverlay" class="yui3-overlay-loading">
+    <div class="yui3-widget-hd" style='background-color:graytext'></div>
+    <div class="yui3-widget-bd"></div>
+    <div class="yui3-widget-ft"></div>
+</div>
+
+<div style="display:none;" class='darkBlock' id="soundAdjustBlock">
+    <div id="soundAdjustBlockContainer" style="top: 200px;">
+        <a id='soundAdjustBlockCloser' class="BlockCloser" href="#">X</a>
+
+        <h1 style="text-align:center;margin:15px;font-size:1.2em;font-weight:bold;text-decoration:underline">Регулировка громкости звукового оповещения</h1>
+        <div id="soundSliderBody" class="yui3-skin-round" style="float:left"></div>
+        <div style="margin-top:25px">
+            <input type='button' class='art-button-wrapper' id='bPlaySound' value=' -Play- '>
+        </div>
+
+    </div>
+    <div class="BlockScreen" style="height: 6071px; display: block;"></div>
+</div>
+
+<div style="display:none;" class='darkBlock' id="startBreakBlock">
+    <div id="startBreakBlockContainer" style="top: 200px;">
+        <a id='startBreakBlockCloser' class="BlockCloser" href="#">X</a>
+        <h1 style="text-align:center;margin:15px;font-size:1.2em;font-weight:bold;text-decoration:underline">Перерыв:</h1>
+        <div id='breakTime'>
+
+            <input type='button' class='button-break art-button-wrapper' id='bBreak3' value='- 3 мин -'>
+            <input type='button' class='button-break art-button-wrapper' id='bBreak5' value='- 5 мин -'>
+            <input type='button' class='button-break art-button-wrapper' id='bBreak15' value='- 15 мин -'>
+            <input type='button' class='button-break art-button-wrapper' id='bBreak20' value='- 20 мин -'>
+
+        </div>
+    </div>
+    <div class="BlockScreen" style="height: 6071px; display: block;"></div>
+</div>
+
+
+<div class='darkBlock' id="loadingMaskBlock">
+    <div id="loadingMaskBlockContainer" style="top: 300px;">
+        Loading
+    </div>
+    <div class="BlockScreen" style="height: 6071px; display: block;"></div>
+</div>
+
+
+<script  type="text/javascript">
+
+<?php
+    if (APPLICATION_ENV == 'local'){?>
+core.init('raw','/time-to-work.net/public/');
+    <?php } else if (APPLICATION_ENV == 'development'){?>
+core.init('raw','http://time-to-work.net/public/');
+    <?php } else {?>
+core.init();
+    <?php } ?>
+</script>
+
+

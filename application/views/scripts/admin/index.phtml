@@ -1,0 +1,37 @@
+<?php
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/shared/reset-fonts-grids.css'));
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/admin/ext-all.css'));
+$this->headLink()->appendStylesheet($this->baseUrl('public/css/admin/grid.css'));
+
+$this->headScript()->appendFile( $this->baseUrl('public/js/libs/ext-base.js'),'text/javascript');
+$this->headScript()->appendFile( $this->baseUrl('public/js/libs/ext-all.js'),'text/javascript');
+$this->headScript()->appendFile( $this->baseUrl('public/js/admin/admin.js'),'text/javascript');
+
+?>
+<style type="text/css">.cleared {
+    float: none;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1px;
+}</style>
+
+
+<div style="float: right;margin-top:4px">
+    <a href="../auth/logout" style="text-decoration:none">logout</a>
+</div>
+<div>
+    <div>
+        <div  id='usersTable' style="float:left;"></div>
+        <div  id='usersTasksTable' style="float:left;"></div>
+        <div  id='tasks-notesTable' style="float:left;"></div>
+    </div>
+    <div class="cleared"></div>
+
+</div>
+<script type="text/javascript">
+    core.init();
+</script>
+
+

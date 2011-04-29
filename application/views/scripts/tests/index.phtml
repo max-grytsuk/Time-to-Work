@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <?php $this->headMeta()->appendHttpEquiv('Content-Type',
+                                             'text/html; charset=UTF-8');
+    echo $this->headMeta() ?>
+
+    <title>Pomodoro Journal</title>
+
+    <?php
+    $this->headLink()->appendStylesheet($this->baseUrl('css/shared/reset-fonts-grids.css'));
+    $this->headScript()->appendFile( ('http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js'),'text/javascript');
+    $this->headScript()->appendFile( $this->baseUrl('js/tests/tests.js'),'text/javascript');
+
+    echo $this->headScript()."\n";
+    echo $this->headLink();
+    ?>
+
+</head>
+<body >
+
+<input type='button' id='bRunTests' value='Run Tests'>
+<div style="float: right;margin-top:4px">
+    <a href="../auth/logout" style="text-decoration:none">logout</a>
+</div>
+<div>
+    <div class="yui3-skin-sam" id="log" style="float:left;width:700px">
+
+    </div>
+
+</body>
+</html>
+
